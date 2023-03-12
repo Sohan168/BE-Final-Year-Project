@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cropbazaar.entity.BidderDetails;
 import com.cropbazaar.entity.BiddingDetails;
+import com.cropbazaar.entity.Credential;
 import com.cropbazaar.entity.FarmerDetails;
 import com.cropbazaar.entity.FarmerSellRequest;
+import com.cropbazaar.entity.Status;
 import com.cropbazaar.service.GenericService;
 
 @RestController
@@ -48,12 +50,15 @@ public class GenericController {
 	 /* 
 	 * @GetMapping("/dispRequest.lti") public List<FarmerSellRequest> dispRequest()
 	 * { return genericService.displayRequest(); }
-	 * 
-	 * @PostMapping("/login.lti") public Status loginValidation(@RequestBody
-	 * Credential credentials) { Status obj =
-	 * loginService.login(credentials.getEmail(), credentials.getPassword(),
-	 * credentials.getRole()); return obj; }
-	 */
+	 */ 
+	 @PostMapping("/login.lti") public Status loginValidation(@RequestBody
+	 Credential credentials) { 
+		 System.out.println(credentials.getEmail());
+		 Status obj =new Status();
+		 obj.setMessage("Valid User");
+	     obj.setGeneratedId(200);
+	      return obj; 
+	      }
  
 	/*
 	 * int requestId;
